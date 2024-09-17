@@ -1,30 +1,29 @@
-import axios from 'axios';
-import React, { useEffect, useState } from 'react';
-import { productContext } from '../Hooks/useContext/productContext';
+
+import React, { useEffect} from 'react';
 import Products from '../components/Products';
+import { useDispatch, useSelector } from 'react-redux';
+import { fetchProducts } from '../redux/productSlice';
 
 function Home() {
-  const [products, setProducts] = useState([]);
 
-  useEffect(() => {
-    async function fetchProducts() {
-      try {
-        const response = await axios.get('/api/products/');  // Use response here
-        setProducts(response.data);  // Set the fetched products in state
-      } catch (error) {
-        console.error('Error fetching products:', error);
-      }
-    }
+  const {isLoading, products, error} = useSelector((state) => state.products);
+  const dispatch = useDispatch();
 
-    fetchProducts();
-  }, []);  
-
+  useEffect(()=>{
+    dispatch(fetchProducts());
+  },[])
  
 
+
+
   return (
-    <productContext.Provider value={products}>
-      <Products/>
-    </productContext.Provider>
+      <div>
+        {isLoading&&<h3>Products Loading Now...</h3>}
+        {error&&<h1>{error}</h1>}
+        <Products/>
+      </div>
+ 
+   
   );
 }
 

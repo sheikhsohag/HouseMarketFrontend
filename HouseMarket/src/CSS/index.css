@@ -91,6 +91,10 @@
 
 /* Product details page design started from here */
 
+.heightOfInfo{
+    height: 300px;
+}
+
 @media (min-width: 1100px) {
 
     .productDetailsImage{

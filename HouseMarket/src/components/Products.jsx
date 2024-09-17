@@ -1,12 +1,20 @@
-import React,{useContext} from 'react'
-import { productContext } from '../Hooks/useContext/productContext'
+import React, {useEffect} from 'react'
 import Product from './product';
-
+import { useSelector, useDispatch } from 'react-redux';
+import { fetchProducts } from '../redux/productSlice';
 
 
 
 function Products() {
-    const products = useContext(productContext);
+  const {isLoading, products, error} = useSelector((state) => state.products);
+  const dispatch = useDispatch();
+
+  useEffect(()=>{
+    dispatch(fetchProducts());
+  },[dispatch])
+ 
+
+  console.log("products", products);
    
 
   return (
