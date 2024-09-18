@@ -121,3 +121,23 @@
 }
 /* table design ended from here */
 
+
+
+/* Login page design started from here */
+.login-container{
+    display: flex;
+    justify-content: center;
+    
+}
+
+
+.Auth-form-container{
+    width: 40%;
+}
+
+.Auth-form-title{
+    justify-content: center;
+    text-align: center;
+}
+/* Login page design ended from here */
+

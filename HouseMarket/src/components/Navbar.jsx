@@ -3,6 +3,10 @@ import { NavLink } from 'react-router-dom'
 
 
 function Navbar() {
+
+  const loggedIn = localStorage.getItem('access_token');
+  console.log(loggedIn, "logged")
+
   return (
     <>
     <nav className="navbar navbar-expand-lg bg-primary" data-bs-theme="dark">
@@ -24,10 +28,20 @@ function Navbar() {
         <li className="nav-item dropdown">
           <a className="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">NewUser?</a>
           <div className="dropdown-menu">
-            <NavLink to={'/login'} className="dropdown-item">LogIn</NavLink>
-            <NavLink to={'/signup'} className="dropdown-item">SignUp</NavLink>
-            <div className="dropdown-divider"></div>
-            <NavLink to={'/logout'} className="dropdown-item">LogOut</NavLink>
+          {
+                loggedIn ? (
+                  <>
+                    <NavLink to={'/logout'} className="dropdown-item">LogOut</NavLink>
+                  </>
+                ) : (
+                  <>
+                    <NavLink to={'/login'} className="dropdown-item">LogIn</NavLink>
+                    <NavLink to={'/signup'} className="dropdown-item">SignUp</NavLink>
+                  </>
+                )
+              }
+
+            
           </div>
         </li>
       </ul>

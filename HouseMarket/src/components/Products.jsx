@@ -14,7 +14,7 @@ function Products() {
   },[dispatch])
  
 
-  console.log("products", products);
+ 
    
 
   return (
