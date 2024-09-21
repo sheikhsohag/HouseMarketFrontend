@@ -17,12 +17,7 @@ function Home() {
     dispatch(fetchProducts());
   },[])
 
-  const local = localStorage.getItem('access_token');
-  console.log("access_token", local)
- 
-
-
-
+  
   return (
       <div>
         <Products/>

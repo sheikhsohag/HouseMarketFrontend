@@ -1,16 +1,17 @@
 import axios from "axios";
 import { useState } from "react";
+import GoogleLoginButton from "../components/googleLoginButton";
 
 // Define the Login function.
 const LogIn = () => {
-  const [username, setUsername] = useState('');
+  const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
   // Create the submit method.
   const submit = async e => {
     e.preventDefault();
     const user = {
-      username: username,
+      email: email,
       password: password
     };
 
@@ -46,15 +47,15 @@ const LogIn = () => {
         <div className="Auth-form-content">
           <h3 className="Auth-form-title">Sign In</h3>
           <div className="form-group mt-3">
-            <label>Username</label>
+            <label>Email</label>
             <input
               className="form-control mt-1"
-              placeholder="Enter Username"
-              name="username"
+              placeholder="Enter Email"
+              name="email"
               type="text"
-              value={username}
+              value={email}
               required
-              onChange={e => setUsername(e.target.value)}
+              onChange={e => setEmail(e.target.value)}
             />
 
           </div>
@@ -74,6 +75,10 @@ const LogIn = () => {
             <button type="submit" className="btn btn-primary">
               Submit
             </button>
+          </div>
+
+          <div className="d-grid gap-2">
+             <GoogleLoginButton/>
           </div>
         </div>
       </form>

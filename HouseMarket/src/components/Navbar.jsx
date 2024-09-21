@@ -5,7 +5,7 @@ import { NavLink } from 'react-router-dom'
 function Navbar() {
 
   const loggedIn = localStorage.getItem('access_token');
-  console.log(loggedIn, "logged")
+  
 
   return (
     <>

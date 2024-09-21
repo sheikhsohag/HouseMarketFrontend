@@ -3,6 +3,8 @@ import axios from 'axios';
 const logout = async () => {
   try {
     const refreshToken = localStorage.getItem('refresh_token');
+
+    console.log("refreshToken");
     
     // Make sure the refresh token exists in localStorage
     if (!refreshToken) {
@@ -30,6 +32,7 @@ const logout = async () => {
     }
 
   } catch (error) {
+    console.log("Now this");
     console.log('logout not working', error);
     if (error.response && error.response.status === 401) {
       console.log('Unauthorized: Check if access token is still valid');

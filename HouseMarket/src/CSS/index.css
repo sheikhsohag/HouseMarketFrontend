@@ -141,3 +141,20 @@
 }
 /* Login page design ended from here */
 
+
+
+/* google button design start from here  */
+/* GoogleLoginButton.css */
+
+.google-button-container {
+    display: flex;
+    justify-content: center; /* Center the button horizontally */
+    align-items: center;     /* Center the button vertically */
+    margin-top: 20px;        /* Add spacing from the top */
+    padding: 10px;           /* Add padding around the button */
+  }
+  
+  
+  
+/* google button design ended from here  */
+

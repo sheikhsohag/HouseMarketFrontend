@@ -6,6 +6,7 @@ import './CSS/index.css';
 import './interceptor/axiox.js';
 
 
+
 createRoot(document.getElementById('root')).render(
   <StrictMode>
     <App />
