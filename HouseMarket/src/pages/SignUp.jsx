@@ -36,16 +36,15 @@ const SignUp = () => {
     signUpData.append('email', email);
     signUpData.append('first_name', firstName);
     signUpData.append('last_name', lastName);
-    signUpData.append('profile_image', profileImage);
-    signUpData.append('address', address);
     signUpData.append('gender', gender);
     signUpData.append('role', role);
     signUpData.append('password', password);
+    signUpData.append('re_password', password);
 
     try {
-      const response = await axios.post('/api/signup/', signUpData, {
+      const response = await axios.post('/api/auth/users/', signUpData, {
         headers: {
-          'Content-Type': 'multipart/form-data'
+          'Content-Type': 'application/json'
         }
       });
       console.log('User registered:', response.data);
@@ -56,7 +55,7 @@ const SignUp = () => {
   };
 
   return (
-    <div className="d-flex justify-content-center align-items-center">
+    <div className="d-flex justify-content-center align-items-center mb-5 mt-3">
       <div className="signup-page col-sm-8 col-md-6 col-lg-4">
         <h2 className="text-center mb-4">Sign Up</h2>
         <form onSubmit={handleSubmit} encType="multipart/form-data">
@@ -93,28 +92,6 @@ const SignUp = () => {
               value={lastName}
               onChange={handleChange}
               required
-            />
-          </div>
-
-          <div className="form-group mb-3">
-            <label>Profile Image:</label>
-            <input
-              type="file"
-              name="profileImage"
-              className="form-control"
-              accept="image/*"
-              onChange={handleChange}
-            />
-          </div>
-
-          <div className="form-group mb-3">
-            <label>Address:</label>
-            <input
-              type="text"
-              name="address"
-              className="form-control"
-              value={address}
-              onChange={handleChange}
             />
           </div>
 
