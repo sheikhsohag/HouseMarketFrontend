@@ -17,12 +17,13 @@ const LogIn = () => {
 
     try {
       // Create the POST request to login
-      const { data } = await axios.post('/api/token/', user, {
+      const { data } = await axios.post('/api/auth/jwt/create/', user, {
         headers: {
           'Content-Type': 'application/json'
-        },
-        withCredentials: true
+        }
       });
+
+      
 
       // Initialize the access & refresh token in localStorage
       localStorage.clear();

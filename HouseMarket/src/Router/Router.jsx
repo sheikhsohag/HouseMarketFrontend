@@ -9,6 +9,8 @@ import SignUp from '../pages/SignUp'
 import LogIn from '../pages/LogIn'
 import LogOut from '../pages/LogOut'
 import ProductDetails from '../pages/ProductDetails'
+import ActivateAccount from '../pages/activateAccount'
+import CustomerDashboard from '../pages/CustomerDashboard'
 
 
 
@@ -25,6 +27,8 @@ function Router() {
               <Route path='/login' element={<LogIn/>}/>
               <Route path='/logout' element={<LogOut/>}/>
               <Route path='product/:id' element={<ProductDetails/>}/>
+              <Route path="/activate/:uidb64/:token" element={<ActivateAccount />} />
+              <Route path='/customer/dashboard' element={<CustomerDashboard/>}/>
           </Routes>
         
        </BrowserRouter>

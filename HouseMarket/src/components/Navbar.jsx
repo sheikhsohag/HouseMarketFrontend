@@ -39,8 +39,8 @@ function Navbar() {
               {loggedIn ? (
                 <>
                   <li className="nav-item">
-                    <NavLink to={"/logout"} className="nav-link">
-                      LogOut
+                    <NavLink to={"/customer/dashboard"} className="nav-link">
+                      Dashboard
                     </NavLink>
                   </li>
                 </>

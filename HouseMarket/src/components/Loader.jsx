@@ -2,23 +2,17 @@ import React from "react";
 
 function Loader() {
   return (
-    <div>
-      <button class="btn btn-primary" type="button" disabled>
-        <span
-          class="spinner-border spinner-border-sm"
-          role="status"
-          aria-hidden="true"
-        ></span>
-        <span class="visually-hidden">Loading...</span>
-      </button>
-      <button class="btn btn-primary" type="button" disabled>
-        <span
-          class="spinner-border spinner-border-sm"
-          role="status"
-          aria-hidden="true"
-        ></span>
-        Loading...
-      </button>
+    <div className="container d-flex">
+      <div
+        className="d-flex justify-content-center align-items-center w-100"
+        style={{ height: "90vh" }}
+      >
+        <div class="d-flex justify-content-center">
+          <div class="spinner-border" role="status">
+            <span class="visually-hidden">Loading...</span>
+          </div>
+        </div>
+      </div>
     </div>
   );
 }

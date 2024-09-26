@@ -48,7 +48,7 @@ const SignUp = () => {
         }
       });
       console.log('User registered:', response.data);
-      window.location.href = '/login'
+      window.location.href = '/activate/:uidb64/:token';
     } catch (error) {
       console.error('Error during registration:', error.response.data);
     }

@@ -1,3 +1,8 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
 
 
 /* Products Container design started from here */
@@ -158,6 +163,33 @@
   
 /* google button design ended from here  */
 
+
+
+/* customer dashboard design started from here */
+.analysis-icon{
+    width: 30px;
+}
+
+.toolkit{
+    color: red;
+    display: none;
+}
+
+.logout:hover{
+    color: red;
+}
+
+.logout-div:hover .toolkit{
+    display: block;
+}
+
+
+  /* Style the tooltip */
+  
+  
+  
+  
+/* customer dashboard design ended from here */
 
 
 

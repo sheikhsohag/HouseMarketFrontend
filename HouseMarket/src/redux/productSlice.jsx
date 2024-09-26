@@ -1,7 +1,12 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import axios from "axios";
+import { getAccessToken } from "../constants/Token";
 
-// Fetch all products
+const fetchAccessToken = async () => {
+  const tokenData = await getAccessToken();
+  return tokenData ? tokenData.access : null;
+};
+
 export const fetchProducts = createAsyncThunk("products/fetchProducts", async () => {
   const res = await axios.get("/api/products/");
   return res.data;
