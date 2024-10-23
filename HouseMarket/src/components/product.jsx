@@ -8,6 +8,7 @@ function Product({ product }) {
   return (
     <>
       <div className="col-12 col-md-4 col-lg-3 col-xl-3 card m-1">
+        
         <div className="cart-image">
           <Link to={`product/${product.id}`} state={product}>
             <img
@@ -16,6 +17,7 @@ function Product({ product }) {
             />
           </Link>
         </div>
+
         <div className="card-body">
           <h4 className="card-title">{product.name}</h4>
           <div className="product-price">

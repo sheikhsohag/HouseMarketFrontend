@@ -30,6 +30,7 @@ function CustomerDashboard() {
 
 
           <div className="col-sm-12 col-md-4 col-lg-3 col-xl-2 bg-dark vh-100">
+            
             <div className="col-12 w-100 mb-3">
 
               <button className="bg-dark w-100 text-white p-2 border-0 text-decoration-none fs-5" onClick={()=>handleActiveComponent(<Profle/>)}>
@@ -101,10 +102,13 @@ function CustomerDashboard() {
 
 
           </div>
+          
 
-          <div className="col-sm-12 col-md-8">
+          <div className="col-sm-12 col-md-8 col-lg-10">
             {activeComponent}
           </div>
+
+
         </div>
       </div>
     </div>

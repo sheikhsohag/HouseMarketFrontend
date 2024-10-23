@@ -11,6 +11,8 @@ import LogOut from '../pages/LogOut'
 import ProductDetails from '../pages/ProductDetails'
 import ActivateAccount from '../pages/activateAccount'
 import CustomerDashboard from '../pages/CustomerDashboard'
+import EditProfile from '../pages/EditProfile'
+import Profile from '../components/profile'
 
 
 
@@ -29,6 +31,8 @@ function Router() {
               <Route path='product/:id' element={<ProductDetails/>}/>
               <Route path="/activate/:uidb64/:token" element={<ActivateAccount />} />
               <Route path='/customer/dashboard' element={<CustomerDashboard/>}/>
+              <Route path='/edit/profile' element={<EditProfile/>}/>
+              <Route path='/user/profile' element={<Profile/>}/>
           </Routes>
         
        </BrowserRouter>

@@ -26,13 +26,14 @@
 /* Cart stay in Product.jsx */
 
 .cart-image{
-    height: 200px;
+    height: 220px;
     padding: 10px;
     box-sizing: border-box;
 }
 
 .cart-image img{
     width: 100%;
+    height: 100%;
     padding: 10px;
 }
 
@@ -190,6 +191,19 @@
   
   
 /* customer dashboard design ended from here */
+
+/* profile design start from here  */
+
+.profile_icon{
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    margin-top: 30px;
+    margin-left: 30px;
+    width: 150px;
+    height: auto;
+}
+/* profile design ended from here  */
 
 
 

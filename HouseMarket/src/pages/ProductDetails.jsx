@@ -19,7 +19,7 @@ function ProductDetails() {
   },[])
 
  
- 
+
 
   return (
     <div className="container">
@@ -31,6 +31,8 @@ function ProductDetails() {
           </button>
         </Link>
       </div>
+
+      
 
       <div className="container-fluid">
         <div className="row">
@@ -48,12 +50,12 @@ function ProductDetails() {
                 <table className="table">
                   <tbody>
                     <tr className="tr">
-                      <td className="td">{product.name}</td>
+                      <td className="td">{product.product_name}</td>
                     </tr>
                     <tr className="tr">
                       <td className="td">Brand: {product.brand}</td>
                     </tr>
-                    <tr className="tr">
+                    <tr className="tr ">
                       <td className="td">
                         <Rating value={product.rating} color={"#f8e825"} />(
                         {product.rating})
@@ -88,7 +90,7 @@ function ProductDetails() {
                       </td>
                     </tr>
 
-                    <tr className="tr md-5">
+                    <tr className="tr md-3">
                       <td className="d-flex justify-content-between">
                        <span className="mt-2">Status:</span> 
                         <span className="mt-2">
@@ -97,8 +99,8 @@ function ProductDetails() {
                       </td>
                     </tr>
 
-                    <tr className="mt-5">
-                      <td className="mt-5">
+                    <tr className="mt-3">
+                      <td className="mt-3">
                         <button type="submit" className="btn addToCartBtn mt-4">
                           Add To Cart
                         </button>

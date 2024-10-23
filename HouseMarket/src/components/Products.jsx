@@ -19,8 +19,9 @@ function Products() {
 
   return (
     <div>
-       <section className='container'>
-          <div className='mt-3 md-3'><h1>Products</h1></div>
+       <section>
+          <div className='mt-3 md-3'><h1 className='ms-5'>Products</h1></div>
+          
           <div className="row Product-row">
             {
                 products && products.map((product)=>{

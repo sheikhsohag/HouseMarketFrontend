@@ -78,9 +78,7 @@ const LogIn = () => {
             </button>
           </div>
 
-          <div className="d-grid gap-2">
-             <GoogleLoginButton/>
-          </div>
+         
         </div>
       </form>
     </div>
