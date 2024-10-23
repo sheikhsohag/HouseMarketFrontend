@@ -13,13 +13,14 @@ import ActivateAccount from '../pages/activateAccount'
 import CustomerDashboard from '../pages/CustomerDashboard'
 import EditProfile from '../pages/EditProfile'
 import Profile from '../components/profile'
+import ResetPassword from '../pages/ResetPassword'
+import DeleteAccount from '../pages/DeleteAccount'
 
 
 
 function Router() {
   return (
     <>
-
        <BrowserRouter>
            <Navbar/>
           <Routes>
@@ -33,6 +34,8 @@ function Router() {
               <Route path='/customer/dashboard' element={<CustomerDashboard/>}/>
               <Route path='/edit/profile' element={<EditProfile/>}/>
               <Route path='/user/profile' element={<Profile/>}/>
+              <Route path='/user/reset/password' element={<ResetPassword/>}/>
+              <Route path='/user/account/delete' element={<DeleteAccount/>}/>
           </Routes>
         
        </BrowserRouter>

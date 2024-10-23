@@ -3,7 +3,11 @@ import axios from "axios";
 import { getAccessToken } from "../constants/Token";
 import { act } from "react";
 
+
+
 const token = localStorage.getItem('access_token');
+
+
 
 
 
@@ -40,7 +44,6 @@ export const fetchProfile = createAsyncThunk("profile/fetchProfile", async ()=>{
 // update profile
 
 export const updateProfile = createAsyncThunk('profile/updateProfile', async (updatedProfile) => {
-  console.log("updated = ", updatedProfile)
   const config = {
     headers: {
       'Content-Type': 'multipart/form-data',
@@ -50,6 +53,56 @@ export const updateProfile = createAsyncThunk('profile/updateProfile', async (up
   const response = await axios.patch('/api/user/profile/update/', updatedProfile, config);
   return response.data;
 });
+
+
+//Change Password
+
+export const ChangePassword = createAsyncThunk(
+  'user/password/change',
+  async (newPassword, { rejectWithValue }) => {
+    const config = {
+      headers: {
+        'Content-Type': 'application/json',
+        'Authorization': `Bearer ${token}`,
+      },
+    };
+
+    try {
+      const res = await axios.post('/api/auth/users/set_password/', newPassword, config);
+      return res.data; // Return the response data on success
+    } catch (error) {
+      // If the error response exists, return it, otherwise return a generic message
+      return rejectWithValue(error.response?.data || 'Something went wrong');
+    }
+  }
+);
+
+
+// delete account
+export const DeleteAccountFetch = createAsyncThunk(
+  'user/account/delete',
+  async (currentPassword, { rejectWithValue }) => {
+    console.log(token);
+
+    const config = {
+      headers: {
+        'Content-Type': 'application/json',
+        'Authorization': `Bearer ${token}`,
+      },
+      data: { // Pass the current_password in the data field
+        current_password: currentPassword,
+      },
+    };
+
+    try {
+      const res = await axios.delete('/api/auth/users/me/', config);
+      return res.data;
+    } catch (error) {
+      // Handle error and return a specific error message
+      return rejectWithValue(error.response?.data || 'Unauthorized request');
+    }
+  }
+);
 
 
 // Products slice
@@ -154,10 +207,69 @@ const ProfileSlice = createSlice({
 
 
 
+// Change password Slice
 
-export { productsSlice, productSlice, ProfileSlice };
+const ChangePasswordSlice  = createSlice({
+  name:"changePassword",
+  initialState: {
+    isLoading: false,
+    ChangePasswordState: null,
+    error: null,
+    status: null,
+    success: false,
+  },
+  extraReducers: (builder)=>{
+       builder.addCase(ChangePassword.pending, (state)=>{
+        state.isLoading = true;
+       })
+       builder.addCase(ChangePassword.fulfilled, (state, action)=>{
+        state.isLoading = false;
+        state.ChangePasswordState = action.payload;
+        state.status = action.payload.status;
+        state.success = true;
+       })
+       builder.addCase(ChangePassword.rejected, (state, action)=>{
+        state.isLoading = false;
+        state.error = action.error.message;
+        state.status = action.payload.status;
+        state.success = false;
+       })
+  }
+})
+
+// user delete
+const DeleteAccountSlice  = createSlice({
+  name:"deleteAccount",
+  initialState: {
+    isLoading: false,
+    error: null,
+    success: false,
+  },
+  extraReducers: (builder)=>{
+       builder.addCase(DeleteAccountFetch.pending, (state)=>{
+        state.isLoading = true;
+       })
+       builder.addCase(DeleteAccountFetch.fulfilled, (state, action)=>{
+        state.isLoading = false;
+        state.success = true;
+       })
+       builder.addCase(DeleteAccountFetch.rejected, (state, action)=>{
+        state.isLoading = false;
+        state.error = action.error.message;
+        state.success = false;
+       })
+  }
+})
+
+
+
+
+
+export { productsSlice, productSlice, ProfileSlice, ChangePasswordSlice, DeleteAccountSlice };
 
 // Exporting reducers
 export const productsReducer = productsSlice.reducer;
 export const productReducer = productSlice.reducer;
 export const profileReducer = ProfileSlice.reducer;
+export const ChangePasswordReducer = ChangePasswordSlice.reducer;
+export const DeleteAccountReducer = DeleteAccountSlice.reducer;

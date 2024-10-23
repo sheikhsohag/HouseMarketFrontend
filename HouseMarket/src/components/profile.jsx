@@ -12,7 +12,7 @@ function Profile() {
   const location = useLocation();
 
   const url = location.pathname;
-  console.log("url", url);
+
 
 
   const [upload, setUpload] = useState(false)

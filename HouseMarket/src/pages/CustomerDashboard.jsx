@@ -75,7 +75,7 @@ function CustomerDashboard() {
                     </span>
                   </div>
                   <div className="col-right w-75">
-                    <span>Setting</span>
+                    <span>Settings</span>
                   </div>
                 </div>
               </button>
